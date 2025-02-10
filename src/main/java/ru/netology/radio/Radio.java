@@ -1,3 +1,5 @@
+// made changes from flexible
+
 package ru.netology.radio;
 
 public class Radio {
