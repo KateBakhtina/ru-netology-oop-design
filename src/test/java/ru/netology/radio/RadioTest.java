@@ -8,15 +8,26 @@ public class RadioTest {
 
 
     @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/dataForCurrentStationTest.csv")
-    public void CurrentStationTest(int newStation, int expectedStation) {
+    @CsvFileSource(files = "src/test/resources/dataForCurrentStationWithoutParametersTest.csv")
+    public void currentStationWithoutParametersTest(int newStation, int expectedStation) {
         Radio station = new Radio();
 
         station.setCurrentStation(newStation);
         int actualStation = station.getCurrentStation();
 
         Assertions.assertEquals(actualStation, expectedStation);
-    };
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/dataForCurrentStationWithParametersTest.csv")
+    public void currentStationWithParametersTest(int newStation, int expectedStation) {
+        Radio station = new Radio(13);
+
+        station.setCurrentStation(newStation);
+        int actualStation = station.getCurrentStation();
+
+        Assertions.assertEquals(actualStation, expectedStation);
+    }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/dataForNextTest.csv")
